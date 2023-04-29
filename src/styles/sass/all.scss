@@ -1,0 +1,59 @@
+@import './signin';
+@import './chat';
+
+body{
+    font-family: 'Poppins', sans-serif;
+/* width */
+::-webkit-scrollbar {
+    width: 5px;
+    border-radius: 10px;
+    position: relative;
+    right: -50px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #e551ff; 
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #ef0083; 
+  }
+  .heading {
+    font-family: "Lobster", cursive;
+    font-size: 32px;
+    color: #db0247;
+  }
+  .tag {
+    margin-bottom: 36px;
+    font-family: "Poppins", sans-serif;
+    font-size: 12px;
+  }
+  input{
+    border: none;
+    padding: 8px;
+    border-bottom: 2px solid #db0247;
+    outline: none;
+    margin: 8px;
+  }
+  .j-end{
+    justify-content: flex-end;
+  }
+  .j-start{
+    justify-content: flex-start;
+  }
+}
+.signButton{
+    border: 2px solid #db0247;
+    background-color: rgb(251, 192, 210);
+    padding: 12px;
+    font-family: 'Poppins', sans-serif;
+    border-radius: 8px;
+    cursor: pointer;
+}

@@ -1,0 +1,143 @@
+.SigninWrapper {
+  background-image: url("../../assets/cover.jpg");
+  background-size: cover;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.SigninWrapper .box {
+  background-color: white;
+  width: 300px;
+  border-radius: 30px;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
+.SignOutWrapper {
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px;
+}
+.SignOutWrapper .right {
+  display: flex;
+  align-items: center;
+}
+.SignOutWrapper .right .welcome {
+  font-size: 24px;
+  margin-right: 32px;
+}
+.SignOutWrapper .left .tag {
+  margin-bottom: 0px;
+}
+
+.ChatWrapper {
+  background-image: url("../../assets/cover.jpg");
+  background-size: cover;
+  background-repeat: repeat;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 5vh;
+}
+.ChatWrapper .chatbox {
+  background-color: white;
+  border-radius: 30px;
+  padding: 40px 0px 40px 40px;
+  display: flex;
+  flex-direction: column;
+}
+.ChatWrapper .chatbox .msgbox {
+  width: 300px;
+  height: 50vh;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.ChatWrapper .chatbox .msgbox .msgCon {
+  display: flex;
+}
+.ChatWrapper .chatbox .msgbox .msgCon .msg {
+  padding: 12px;
+  margin: 8px;
+  border-radius: 8px;
+  font-size: 12px;
+  width: max-content;
+}
+.ChatWrapper .chatbox .msgbox .msgCon .msg .textinfo {
+  font-style: italic;
+  font-size: 10px;
+  color: rgb(98, 98, 98);
+}
+.ChatWrapper .chatbox .msgbox .msgCon > .sent {
+  background-color: rgb(255, 193, 219);
+}
+.ChatWrapper .chatbox .msgbox .msgCon > .received {
+  background-color: rgb(193, 255, 229);
+  justify-content: flex-end;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  /* width */
+  /* Track */
+  /* Handle */
+  /* Handle on hover */
+}
+body ::-webkit-scrollbar {
+  width: 5px;
+  border-radius: 10px;
+  position: relative;
+  right: -50px;
+}
+body ::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+body ::-webkit-scrollbar-thumb {
+  background: #e551ff;
+}
+body ::-webkit-scrollbar-thumb:hover {
+  background: #ef0083;
+}
+body .heading {
+  font-family: "Lobster", cursive;
+  font-size: 32px;
+  color: #db0247;
+}
+body .tag {
+  margin-bottom: 36px;
+  font-family: "Poppins", sans-serif;
+  font-size: 12px;
+}
+body input {
+  border: none;
+  padding: 8px;
+  border-bottom: 2px solid #db0247;
+  outline: none;
+  margin: 8px;
+}
+body .j-end {
+  justify-content: flex-end;
+}
+body .j-start {
+  justify-content: flex-start;
+}
+
+.signButton {
+  border: 2px solid #db0247;
+  background-color: rgb(251, 192, 210);
+  padding: 12px;
+  font-family: "Poppins", sans-serif;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/*# sourceMappingURL=all.css.map */
