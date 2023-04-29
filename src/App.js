@@ -1,6 +1,5 @@
 import { useRef, useEffect, useState } from "react";
 import { useAuthState } from 'react-firebase-hooks/auth';
-import Places from "./components/Places";
 import Signin from "./components/Signin";
 import Chat from "./components/Chat";
 import { auth } from './firebase';
