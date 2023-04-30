@@ -41,3 +41,29 @@
   }
 
 }
+
+@media screen and (max-width: 600px) {
+
+  .SignOutWrapper {
+   
+    align-items: left;
+    justify-content: space-between;
+  
+    .right{
+      display: flex;
+      flex-direction: column;
+
+      align-items: center;
+      width: unset;
+      .welcome {
+        display: none;
+        }
+    }
+    .left{
+  .tag{
+      margin-bottom: 0px;
+  }
+    }
+  
+  }
+}

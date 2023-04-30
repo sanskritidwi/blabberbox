@@ -34,9 +34,11 @@ function Chat({username}) {
             uid === auth.currentUser.uid ? "sent" : "received"
           }`}
         >
-          {/* <img src={photoURL} alt="" /> */}
+          <img src={photoURL} alt="noimg" className="profile"/>
+          <div className="msgText"> 
           <div className="text">{text}</div>
-          <div className="textinfo">by {userName}</div>
+         
+          <div className="textinfo">by {userName}</div></div>
         </div></div>
      
       ))}

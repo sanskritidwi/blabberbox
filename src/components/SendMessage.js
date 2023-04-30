@@ -9,10 +9,10 @@ function SendMessage({scroll,userName}) {
 
   async function sendMessage(e) {
     e.preventDefault();
-    const { uid, photoUrl } = auth.currentUser;
+    const { uid, photoURL } = auth.currentUser;
     await db.collection("messages").add({
       text: mesg,
-      photoUrl: null,
+      photoURL:photoURL,
       uid,
       createdAt: firebase.firestore.FieldValue.serverTimestamp(),
       userName:userName,

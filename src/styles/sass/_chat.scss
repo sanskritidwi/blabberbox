@@ -26,11 +26,21 @@
             .msgCon{
                 display: flex;
                 .msg{
-                    padding: 12px;
+                    padding: 12px 12px 12px 6px;
                     margin: 8px;
                     border-radius: 8px;
                     font-size: 12px;
                     width: max-content;
+                    display: flex;
+                    .profile{
+                        width: 20px;
+                        height: 20px;
+                        border-radius: 50%;
+                        margin: 4px;
+                    }
+                    .msgText{
+                        
+                    }
                     .textinfo{
                         font-style: italic;
                         font-size: 10px;

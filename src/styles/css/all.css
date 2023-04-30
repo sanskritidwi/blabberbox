@@ -36,6 +36,24 @@
   margin-bottom: 0px;
 }
 
+@media screen and (max-width: 600px) {
+  .SignOutWrapper {
+    align-items: left;
+    justify-content: space-between;
+  }
+  .SignOutWrapper .right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: unset;
+  }
+  .SignOutWrapper .right .welcome {
+    display: none;
+  }
+  .SignOutWrapper .left .tag {
+    margin-bottom: 0px;
+  }
+}
 .ChatWrapper {
   background-image: url("../../assets/cover.jpg");
   background-size: cover;
@@ -66,11 +84,18 @@
   display: flex;
 }
 .ChatWrapper .chatbox .msgbox .msgCon .msg {
-  padding: 12px;
+  padding: 12px 12px 12px 6px;
   margin: 8px;
   border-radius: 8px;
   font-size: 12px;
   width: max-content;
+  display: flex;
+}
+.ChatWrapper .chatbox .msgbox .msgCon .msg .profile {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  margin: 4px;
 }
 .ChatWrapper .chatbox .msgbox .msgCon .msg .textinfo {
   font-style: italic;
@@ -138,6 +163,12 @@ body .j-start {
   font-family: "Poppins", sans-serif;
   border-radius: 8px;
   cursor: pointer;
+}
+
+@media screen and (max-width: 600px) {
+  .signButton {
+    padding: 8px;
+  }
 }
 
 /*# sourceMappingURL=all.css.map */
