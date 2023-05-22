@@ -1,56 +1,72 @@
-import React, { useEffect, useState,useRef } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import SignOut from "./SignOut";
 import { db } from "../firebase";
 import { auth } from "../firebase";
 import SendMessage from "./SendMessage";
 
-function Chat({username}) {
-  const scroll = useRef()
-  const [mesg, setMesg] = useState([]);
+function Chat({ username }) {
+  const scrollRef = useRef(null);
+  const [messages, setMessages] = useState([]);
 
   useEffect(() => {
-    db.collection('messages')
-      .orderBy('createdAt')
+    const unsubscribe = db
+      .collection("messages")
+      .orderBy("createdAt")
       .limit(50)
       .onSnapshot((snapshot) => {
-        setMesg(snapshot.docs.map((doc) => doc.data()));
+        const messageData = snapshot.docs.map((doc) => doc.data());
+        setMessages(messageData);
+        scrollToLatestMessage();
       });
-    console.log(mesg);
+
+    return () => {
+      unsubscribe();
+    };
   }, []);
+
+  const scrollToLatestMessage = () => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   return (
     <>
-          <SignOut displayName={username}/>
+      <SignOut displayName={username} />
 
-    <div className="ChatWrapper">
-      <div className="chatbox">
-        <div className="msgbox">
-        {mesg.map(({ id, text, photoURL, uid,userName}) => (
-          <div  className={`msgCon ${
-            uid === auth.currentUser.uid ? "j-end" : "j-start"
-          }`}>   <div
-          key={id}
-          className={`msg ${
-            uid === auth.currentUser.uid ? "sent" : "received"
-          }`}
-        >
-          <img src={photoURL} alt="noimg" className="profile"/>
-          <div className="msgText"> 
-          <div className="text">{text}</div>
-         
-          <div className="textinfo">by {userName}</div></div>
-        </div></div>
-     
-      ))}
+      <div className="ChatWrapper">
+        <div className="chatbox">
+          <div className="msgbox" id="chat-scroll-container">
+            {messages.map(({ id, text, photoURL, uid, userName }) => (
+              <div
+                key={id}
+                className={`msgCon ${
+                  uid === auth.currentUser.uid ? "j-end" : "j-start"
+                }`}
+              >
+                <div
+                  className={`msg ${
+                    uid === auth.currentUser.uid ? "sent" : "received"
+                  }`}
+                >
+                  <img src={photoURL} alt="noimg" className="profile" />
+                  <div className="msgText">
+                    <div className="text">{text}</div>
+                    <div className="textinfo">by {userName}</div>
+                  </div>
+                </div>
+              </div>
+            ))}
+            <div ref={scrollRef}></div>
+          </div>
+          <SendMessage
+            userName={username}
+            scrollToLatestMessage={scrollToLatestMessage}
+          />
         </div>
-     
-       <SendMessage scroll={scroll} userName={username}/>
-            <div ref={scroll}></div>
       </div>
-     
-    </div></>
+    </>
   );
 }
-
 
 export default Chat;

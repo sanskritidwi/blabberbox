@@ -1,36 +1,36 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { db } from "../firebase";
 import { auth } from "../firebase";
 import firebase from "firebase/compat/app";
 
-function SendMessage({scroll,userName}) {
+function SendMessage({ userName, scrollToLatestMessage }) {
   const [mesg, setMesg] = useState("");
-  const [user, setUser] = useState("");
 
   async function sendMessage(e) {
     e.preventDefault();
     const { uid, photoURL } = auth.currentUser;
     await db.collection("messages").add({
       text: mesg,
-      photoURL:photoURL,
+      photoURL: photoURL,
       uid,
       createdAt: firebase.firestore.FieldValue.serverTimestamp(),
-      userName:userName,
+      userName: userName,
     });
-    setMesg('');
-    scroll.current.scrollIntoView({ behavior: "smooth" });
+    setMesg("");
+    scrollToLatestMessage();
   }
+
   return (
     <div>
       <form onSubmit={sendMessage}>
         <input
           type="text"
-          onChange={(e) => {
-            setMesg(e.target.value);
-            setUser(userName);
-          }}
+          onChange={(e) => setMesg(e.target.value)}
+          value={mesg}
         />
-        <button type="submit" className="signButton">Send</button>
+        <button type="submit" className="signButton">
+          Send
+        </button>
       </form>
     </div>
   );
